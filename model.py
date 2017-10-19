@@ -81,6 +81,7 @@ class SGNS(nn.Module):
     def forward(self, iword, owords):
         # black magic from https://github.com/kefirski/pytorch_NEG_loss
         nwords = self.sample(iword, owords)
+        print(self.window_size, type(self.window_size))
         ivectors = self.embedding.forward_i(LongTensor(iword).repeat(1, self.window_size).contiguous().view(-1))
         ovectors = self.embedding.forward_o(LongTensor(owords).contiguous().view(-1))
         nvectors = self.embedding.forward_o(LongTensor(nwords).contiguous().view(self.batch_size * self.window_size, -1)).neg()

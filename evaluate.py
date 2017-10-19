@@ -9,7 +9,7 @@ from numpy.linalg import norm
 
 
 word2idx = pickle.load(open('./data/word2idx.dat', 'rb'))
-idx2vec = pickle.load(open('./data/idx2vec.dat', 'rb'))
+idx2vec = pickle.load(open('./data/idx2vec_2epochs.dat', 'rb'))
 
 
 def w2v(w):
